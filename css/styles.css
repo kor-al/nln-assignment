@@ -1,4 +1,51 @@
-body{
-    background-color: red;
-    font-size: 32px;
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@900&display=swap");
+
+body {
+  width: 100%;
+  height: auto;
+  background-color: black;
+  margin: 0;
+  padding: 0;
 }
+
+svg {
+  background-color: #3d3d3d;
+}
+
+
+#rect-background {
+  opacity: 60%;
+  fill: #303030;
+}
+
+path {
+  opacity: 50%;
+  stroke: black;
+  stroke-width: 5px;
+  fill: black;
+  filter: url(#displacementFilter);
+  mask: url(#knockout-text);
+  mix-blend-mode: hard-light;
+}
+
+.path-larger {
+  filter: url(#displacementFilterLarger);
+}
+
+.path-red {
+  stroke: black;
+  mix-blend-mode: hard-light;
+  transition: stroke 300ms ease-in-out;
+}
+
+.large {
+  font: bold 200px sans-serif;
+  font-family: "Spartan", sans-serif;
+  /* black and white */
+  filter: brightness(0) saturate(100%); 
+  cursor: pointer;
+}
+
+svg:hover .path-red{
+    stroke: #ff5733;
+  }

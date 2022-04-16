@@ -1,0 +1,80 @@
+<!-- Developed by Alisa Korinevskaya, 2022 -->
+<!-- Data source for the word cloud: Guardian API -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/styles3.css" />
+    <title>News</title>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- Load d3-cloud -->
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div id="words"></div>
+  </body>
+  <!-- move round cursor with the mouse -->
+  <script>
+    var cursor = document.getElementById("cursor");
+    document.body.addEventListener("mousemove", function (e) {
+      (cursor.style.left = e.clientX + "px"),
+        (cursor.style.top = e.clientY + "px");
+    });
+  </script>
+  <!-- build word cloud -->
+  <script type="module">
+    import { words_weights } from "../script/data.js";
+
+    var layout = d3.layout
+      .cloud()
+      .size([window.innerWidth, window.innerHeight])
+      .words(
+        words_weights.map(function (d) {
+          return { text: d.word, size: (5 + d.size)*2 };
+        })
+      )
+      .padding(5)
+      .rotate(45)
+      .fontSize(function (d) {
+        return d.size;
+      })
+      .on("end", draw);
+
+    layout.start();
+
+    function draw(words) {
+      d3.select("body")
+        .append("svg")
+        .attr("width", layout.size()[0])
+        .attr("height", layout.size()[1])
+        .append("g")
+        .attr(
+          "transform",
+          "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")"
+        )
+        .selectAll("text")
+        .data(words)
+        .enter()
+        .append("text")
+        .style("font-size", function (d) {
+          return (5 + d.size) + "px";
+        })
+        .classed("word", true)
+        .attr("text-anchor", "middle")
+        .attr("transform", function (d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function (d) {
+          return d.text;
+        });
+    }
+  </script>
+</html>

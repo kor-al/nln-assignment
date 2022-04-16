@@ -1,14 +1,44 @@
+<!-- Developed by Alisa Korinevskaya, 2022 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/styles1.css">
-    <title>Document</title>
-</head>
-<body>
-    <p><a href="./page2.html">Page2</a></p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/styles1.css" />
+    <title>Thoughts</title>
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <div class="box"></div>
+      <div class="box texted clickable"><a href="./page3.html">Is it real</a></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box texted clickable"><a href="./page4.html">Hate</a></div>
+      <div class="box"></div>
+      <div class="box texted">Shame</div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box texted">Disgust</div>
+      <div class="box texted clickable"><a href="./page2.html">Pain</a></div>
+      <div class="box"></div>
+      <div class="box texted">How</div>
+      <div class="box"></div>
+    </div>
+  </body>
+
+  <script>
+    const boxes = document.querySelectorAll(".box");
+
+    for (const box of boxes) {
+      box.style.minWidth = 3 + Math.random() * 20 + "rem";
+      box.style.minHeight = 3 + Math.random() * 15 + "rem";
+      box.style.borderWidth = 1 + Math.random() * 10 + "px";
+      box.style.borderColor = "white";
+      box.style.color = "white";
+      box.style.margin =
+        Math.random() > 0.9 ? 10 + Math.random() * 100 + "px" : 0;
+    }
+  </script>
 </html>
