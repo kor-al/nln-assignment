@@ -1,4 +1,4 @@
-# nln-assignment
+# NLN home assignment
 Home assignment for the NLN master's program at KABK. A set of 5 connected pages that show basic HTML and CSS skills.
 
 The webpages are available [here](https://kor-al.github.io/nln-assignment/index.html) 
