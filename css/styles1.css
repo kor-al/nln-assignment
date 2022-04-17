@@ -38,12 +38,16 @@ body{
 
 .box:hover {
   cursor: crosshair;
-  clip-path: circle(20%);
-  background-color: rgb(243, 149, 26);
+  clip-path: circle(30%);
+  background-color: white;
 }
 
 .clickable:hover {
   background-color: rgb(179, 5, 5);
+}
+
+.nonclickable:hover {
+  background-color: rgb(243, 149, 26);
 }
 
 .clickable:hover a{

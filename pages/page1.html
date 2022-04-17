@@ -17,13 +17,13 @@
       <div class="box"></div>
       <div class="box texted clickable"><a href="./page4.html">Hate</a></div>
       <div class="box"></div>
-      <div class="box texted">Shame</div>
+      <div class="box texted nonclickable">Shame</div>
+      <div class="box texted nonclickable">Fear</div>
       <div class="box"></div>
-      <div class="box"></div>
-      <div class="box texted">Disgust</div>
+      <div class="box texted nonclickable">Disgust</div>
       <div class="box texted clickable"><a href="./page2.html">Pain</a></div>
       <div class="box"></div>
-      <div class="box texted">How</div>
+      <div class="box texted nonclickable">How come?</div>
       <div class="box"></div>
     </div>
   </body>
@@ -32,7 +32,7 @@
     const boxes = document.querySelectorAll(".box");
 
     for (const box of boxes) {
-      box.style.minWidth = 3 + Math.random() * 20 + "rem";
+      box.style.minWidth = 3 + Math.random() * 23 + "rem";
       box.style.minHeight = 3 + Math.random() * 15 + "rem";
       box.style.borderWidth = 1 + Math.random() * 10 + "px";
       box.classList.add("show");
